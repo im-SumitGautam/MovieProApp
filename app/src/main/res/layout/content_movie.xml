@@ -7,7 +7,7 @@
 
         <variable
             name="secondaryMovie"
-            type="com.example.movieproapp.Model.Movie" />
+            type="com.example.movieproapp.model.Movie" />
     </data>
 
     <RelativeLayout
