@@ -43,7 +43,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
+    //Javax
     implementation 'org.glassfish:javax.annotation:10.0-b28'
+
+    //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    //swap refresh layout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    //Glide Library
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
 }

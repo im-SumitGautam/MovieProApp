@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.MovieProApp" parent="Base.Theme.MovieProApp" />
+    
+    <style name="AppTheme.AppBarOverLay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    
+    <style name="AppTheme.PopUpOverLay" parent="ThemeOverlay.AppCompat.Light"/>
+    
 </resources>

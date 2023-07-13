@@ -4,7 +4,6 @@ import android.app.Application;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.movieproapp.Model.Movie;
 import com.example.movieproapp.Model.Result;
 import com.example.movieproapp.R;
 import com.example.movieproapp.Services.MovieDataServices;
@@ -19,15 +18,15 @@ import retrofit2.Response;
 
 public class MovieRepository {
 
-    private ArrayList<Movie> movieArrayList = new ArrayList<>();
-    private MutableLiveData<List<Movie>> movieMutableLiveData = new MutableLiveData<>();
+    private List<Result> movies = new ArrayList<Result>();
+    private MutableLiveData<List<Result>> mutableLiveData = new MutableLiveData<List<Result>>();
     private Application application;
 
     public MovieRepository(Application application) {
         this.application = application;
     }
 
-    public MutableLiveData<List<Movie>> getMovieMutableLiveData(){
+    public MutableLiveData<List<Result>> getMovieMutableLiveData(){
 
         MovieDataServices movieDataServices = RetrofitInstance.getService();
         Call<Result> call = movieDataServices.getPopularMovie(application.getApplicationContext().getString(R.string.api_key));
@@ -37,8 +36,8 @@ public class MovieRepository {
             public void onResponse(Call<Result> call, Response<Result> response) {
                 Result result = response.body();
                 if(result != null && result.getResults() != null){
-                    movieArrayList = (ArrayList<Movie>) result.getResults();
-                    movieMutableLiveData.setValue(movieArrayList);
+                   movies = result.getResults();
+                    mutableLiveData.setValue(movies);
                 }
             }
 
@@ -48,6 +47,6 @@ public class MovieRepository {
             }
         });
 
-        return movieMutableLiveData;
+        return mutableLiveData;
     }
 }
